@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4918121117217768193}
   - component: {fileID: 1922417535317941276}
+  - component: {fileID: -5606394479048706167}
+  - component: {fileID: 6157583118668354330}
+  - component: {fileID: 3064255251984538714}
   m_Layer: 0
   m_Name: Planet 05
   m_TagString: Untagged
@@ -26,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3899219755189121320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.09, y: -0.17, z: 0}
-  m_LocalScale: {x: 0.11281103, y: 0.124565355, z: 1}
+  m_LocalScale: {x: 0.09798428, y: 0.09792574, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,3 +87,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5606394479048706167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899219755189121320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003658de2f1279f40923cd1b9eae4a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1
+--- !u!58 &6157583118668354330
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899219755189121320}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: f94a9dc24e180d141bfcbc7238fd6b6c, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.4
+--- !u!50 &3064255251984538714
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899219755189121320}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
