@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
      {
       if(other.gameObject.CompareTag("Wall"))
       {
-        //Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
+        Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
         Destroy(this.gameObject);
       }  
 

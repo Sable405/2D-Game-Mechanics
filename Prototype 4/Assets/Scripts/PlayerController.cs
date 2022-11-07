@@ -9,12 +9,15 @@ public class PlayerController : MonoBehaviour
     public GameObject PowerupIndicator;
     public bool HasPowerup = false;
     private Rigidbody2D _playerRb;
+
+    private SpriteRenderer _playerSR;
     public float PowerupStrength = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         _playerRb = GetComponent<Rigidbody2D>();
+        _playerSR = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -32,9 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Wall"))
         {
-            Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
-            gameObject.SetActive(false);
-            SceneManager.LoadScene(0);
+           StartCoroutine(GameOverRoutine());
         }
 
         if(other.gameObject.CompareTag("Powerup"))
@@ -46,16 +47,17 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    private void OnCollision2D (Collision2D other)
+    private void OnCollisionEnter2D (Collision2D other)
         {
             if(other.gameObject.CompareTag("Enemy") && HasPowerup)
             {
+                Debug.Log("Just hit enemy");
                 Rigidbody2D enemyRB = other.gameObject.GetComponent<Rigidbody2D>();
 
                 Vector2 awayFromPlayer = (other.gameObject.transform.position - transform.position);
 
                 enemyRB.AddForce(awayFromPlayer * PowerupStrength, ForceMode2D.Impulse);
-
+                Debug.Log("After I hit enemy");
                 PowerupIndicator.gameObject.SetActive(false);
                 HasPowerup = false;
             }
@@ -65,5 +67,16 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(5);
             PowerupIndicator.gameObject.SetActive(false);
             HasPowerup = false;
+        }
+        IEnumerator GameOverRoutine()
+        {
+            Instantiate(ExplosionFX, transform.position, ExplosionFX.transform.rotation);
+          //gameObject.SetActive(false);
+          PowerupIndicator.gameObject.SetActive(false);
+            HasPowerup = false;
+            _playerSR.enabled = false;
+        yield return new WaitForSeconds(1.5f); 
+        SceneManager.LoadScene(0);
+            
         }
 }
